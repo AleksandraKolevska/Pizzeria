@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    @foreach(var obj in ViewData.Model)
+    {
+        <ul>
+            <li>
+                @obj.ImePica
+            </li>
+        </ul>
+    }
+
+</div>

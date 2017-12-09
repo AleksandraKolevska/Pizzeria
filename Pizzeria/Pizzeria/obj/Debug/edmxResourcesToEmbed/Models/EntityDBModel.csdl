@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PizzeriaEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kategorii">
+    <Key>
+      <PropertyRef Name="KategoriiID" />
+    </Key>
+    <Property Name="KategoriiID" Type="Int32" Nullable="false" />
+    <Property Name="Vid" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Kategorii" FromRole="Kategorii" ToRole="Meni" />
+  </EntityType>
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="KorisniciID" />
+    </Key>
+    <Property Name="KorisniciID" Type="Int32" Nullable="false" />
+    <Property Name="EMBG" Type="Int32" />
+    <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Narackas" Relationship="Self.FK_Naracka_Korisnici" FromRole="Korisnici" ToRole="Naracka" />
+  </EntityType>
+  <EntityType Name="Meni">
+    <Key>
+      <PropertyRef Name="MeniID" />
+    </Key>
+    <Property Name="MeniID" Type="Int32" Nullable="false" />
+    <Property Name="TipID" Type="Int32" />
+    <Property Name="VelicinaID" Type="Int32" />
+    <Property Name="KategoriiID" Type="Int32" />
+    <Property Name="OpisID" Type="Int32" />
+    <Property Name="Cena" Type="Int32" />
+    <NavigationProperty Name="Kategorii" Relationship="Self.FK_Meni_Kategorii" FromRole="Meni" ToRole="Kategorii" />
+    <NavigationProperty Name="Opi" Relationship="Self.FK_Meni_Opis" FromRole="Meni" ToRole="Opis" />
+    <NavigationProperty Name="Tip" Relationship="Self.FK_Meni_Tip" FromRole="Meni" ToRole="Tip" />
+    <NavigationProperty Name="Velicina" Relationship="Self.FK_Meni_Velicina" FromRole="Meni" ToRole="Velicina" />
+    <NavigationProperty Name="Narackas" Relationship="Self.FK_Naracka_Meni" FromRole="Meni" ToRole="Naracka" />
+  </EntityType>
+  <EntityType Name="Naracka">
+    <Key>
+      <PropertyRef Name="NarackaID" />
+    </Key>
+    <Property Name="NarackaID" Type="Int32" Nullable="false" />
+    <Property Name="MeniID" Type="Int32" />
+    <Property Name="KorisniciID" Type="Int32" />
+    <Property Name="Kolicina" Type="Int32" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK_Naracka_Korisnici" FromRole="Naracka" ToRole="Korisnici" />
+    <NavigationProperty Name="Meni" Relationship="Self.FK_Naracka_Meni" FromRole="Naracka" ToRole="Meni" />
+  </EntityType>
+  <EntityType Name="Opi">
+    <Key>
+      <PropertyRef Name="OpisID" />
+    </Key>
+    <Property Name="OpisID" Type="Int32" Nullable="false" />
+    <Property Name="TipID" Type="Int32" />
+    <Property Name="Sostojki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Opis" FromRole="Opis" ToRole="Meni" />
+    <NavigationProperty Name="PoedinecnaPicas" Relationship="Self.FK_PoedinecnaPica_Opis" FromRole="Opis" ToRole="PoedinecnaPica" />
+  </EntityType>
+  <EntityType Name="PoedinecnaPica">
+    <Key>
+      <PropertyRef Name="PoedinecnaPicaID" />
+    </Key>
+    <Property Name="PoedinecnaPicaID" Type="Int32" Nullable="false" />
+    <Property Name="Cena" Type="Int32" />
+    <Property Name="OpisID" Type="Int32" />
+    <Property Name="VelicinaID" Type="Int32" />
+    <Property Name="KategoriiID" Type="Int32" />
+    <NavigationProperty Name="Opi" Relationship="Self.FK_PoedinecnaPica_Opis" FromRole="PoedinecnaPica" ToRole="Opis" />
+    <NavigationProperty Name="Velicina" Relationship="Self.FK_PoedinecnaPica_Velicina" FromRole="PoedinecnaPica" ToRole="Velicina" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tip">
+    <Key>
+      <PropertyRef Name="TipID" />
+    </Key>
+    <Property Name="TipID" Type="Int32" Nullable="false" />
+    <Property Name="ImePica" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Tip" FromRole="Tip" ToRole="Meni" />
+  </EntityType>
+  <EntityType Name="Velicina">
+    <Key>
+      <PropertyRef Name="VelicinaID" />
+    </Key>
+    <Property Name="VelicinaID" Type="Int32" Nullable="false" />
+    <Property Name="Golemina" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Gramaza" Type="Int32" />
+    <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Velicina" FromRole="Velicina" ToRole="Meni" />
+    <NavigationProperty Name="PoedinecnaPicas" Relationship="Self.FK_PoedinecnaPica_Velicina" FromRole="Velicina" ToRole="PoedinecnaPica" />
+  </EntityType>
+  <Association Name="FK_Meni_Kategorii">
+    <End Role="Kategorii" Type="Self.Kategorii" Multiplicity="0..1" />
+    <End Role="Meni" Type="Self.Meni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorii">
+        <PropertyRef Name="KategoriiID" />
+      </Principal>
+      <Dependent Role="Meni">
+        <PropertyRef Name="KategoriiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naracka_Korisnici">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Naracka" Type="Self.Naracka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisniciID" />
+      </Principal>
+      <Dependent Role="Naracka">
+        <PropertyRef Name="KorisniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Meni_Opis">
+    <End Role="Opis" Type="Self.Opi" Multiplicity="0..1" />
+    <End Role="Meni" Type="Self.Meni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opis">
+        <PropertyRef Name="OpisID" />
+      </Principal>
+      <Dependent Role="Meni">
+        <PropertyRef Name="OpisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Meni_Tip">
+    <End Role="Tip" Type="Self.Tip" Multiplicity="0..1" />
+    <End Role="Meni" Type="Self.Meni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tip">
+        <PropertyRef Name="TipID" />
+      </Principal>
+      <Dependent Role="Meni">
+        <PropertyRef Name="TipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Meni_Velicina">
+    <End Role="Velicina" Type="Self.Velicina" Multiplicity="0..1" />
+    <End Role="Meni" Type="Self.Meni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Velicina">
+        <PropertyRef Name="VelicinaID" />
+      </Principal>
+      <Dependent Role="Meni">
+        <PropertyRef Name="VelicinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Naracka_Meni">
+    <End Role="Meni" Type="Self.Meni" Multiplicity="0..1" />
+    <End Role="Naracka" Type="Self.Naracka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meni">
+        <PropertyRef Name="MeniID" />
+      </Principal>
+      <Dependent Role="Naracka">
+        <PropertyRef Name="MeniID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PoedinecnaPica_Opis">
+    <End Role="Opis" Type="Self.Opi" Multiplicity="0..1" />
+    <End Role="PoedinecnaPica" Type="Self.PoedinecnaPica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opis">
+        <PropertyRef Name="OpisID" />
+      </Principal>
+      <Dependent Role="PoedinecnaPica">
+        <PropertyRef Name="OpisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PoedinecnaPica_Velicina">
+    <End Role="Velicina" Type="Self.Velicina" Multiplicity="0..1" />
+    <End Role="PoedinecnaPica" Type="Self.PoedinecnaPica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Velicina">
+        <PropertyRef Name="VelicinaID" />
+      </Principal>
+      <Dependent Role="PoedinecnaPica">
+        <PropertyRef Name="VelicinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PizzeriaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kategoriis" EntityType="Self.Kategorii" />
+    <EntitySet Name="Korisnicis" EntityType="Self.Korisnici" />
+    <EntitySet Name="Menis" EntityType="Self.Meni" />
+    <EntitySet Name="Narackas" EntityType="Self.Naracka" />
+    <EntitySet Name="Opis" EntityType="Self.Opi" />
+    <EntitySet Name="PoedinecnaPicas" EntityType="Self.PoedinecnaPica" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tips" EntityType="Self.Tip" />
+    <EntitySet Name="Velicinas" EntityType="Self.Velicina" />
+    <AssociationSet Name="FK_Meni_Kategorii" Association="Self.FK_Meni_Kategorii">
+      <End Role="Kategorii" EntitySet="Kategoriis" />
+      <End Role="Meni" EntitySet="Menis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naracka_Korisnici" Association="Self.FK_Naracka_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnicis" />
+      <End Role="Naracka" EntitySet="Narackas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Meni_Opis" Association="Self.FK_Meni_Opis">
+      <End Role="Opis" EntitySet="Opis" />
+      <End Role="Meni" EntitySet="Menis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Meni_Tip" Association="Self.FK_Meni_Tip">
+      <End Role="Tip" EntitySet="Tips" />
+      <End Role="Meni" EntitySet="Menis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Meni_Velicina" Association="Self.FK_Meni_Velicina">
+      <End Role="Velicina" EntitySet="Velicinas" />
+      <End Role="Meni" EntitySet="Menis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Naracka_Meni" Association="Self.FK_Naracka_Meni">
+      <End Role="Meni" EntitySet="Menis" />
+      <End Role="Naracka" EntitySet="Narackas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PoedinecnaPica_Opis" Association="Self.FK_PoedinecnaPica_Opis">
+      <End Role="Opis" EntitySet="Opis" />
+      <End Role="PoedinecnaPica" EntitySet="PoedinecnaPicas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PoedinecnaPica_Velicina" Association="Self.FK_PoedinecnaPica_Velicina">
+      <End Role="Velicina" EntitySet="Velicinas" />
+      <End Role="PoedinecnaPica" EntitySet="PoedinecnaPicas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

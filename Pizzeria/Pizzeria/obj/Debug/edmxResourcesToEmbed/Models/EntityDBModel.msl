@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PizzeriaEntityStoreContainer" CdmEntityContainer="PizzeriaEntities">
+    <EntitySetMapping Name="Kategoriis">
+      <EntityTypeMapping TypeName="PizzeriaEntity.Kategorii">
+        <MappingFragment StoreEntitySet="Kategorii">
+          <ScalarProperty Name="KategoriiID" ColumnName="KategoriiID" />
+          <ScalarProperty Name="Vid" ColumnName="Vid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisnicis">
+      <EntityTypeMapping TypeName="PizzeriaEntity.Korisnici">
+        <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="KorisniciID" ColumnName="KorisniciID" />
+          <ScalarProperty Name="EMBG" ColumnName="EMBG" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Grad" ColumnName="Grad" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menis">
+      <EntityTypeMapping TypeName="PizzeriaEntity.Meni">
+        <MappingFragment StoreEntitySet="Meni">
+          <ScalarProperty Name="MeniID" ColumnName="MeniID" />
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
+          <ScalarProperty Name="VelicinaID" ColumnName="VelicinaID" />
+          <ScalarProperty Name="KategoriiID" ColumnName="KategoriiID" />
+          <ScalarProperty Name="OpisID" ColumnName="OpisID" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Narackas">
+      <EntityTypeMapping TypeName="PizzeriaEntity.Naracka">
+        <MappingFragment StoreEntitySet="Naracka">
+          <ScalarProperty Name="NarackaID" ColumnName="NarackaID" />
+          <ScalarProperty Name="MeniID" ColumnName="MeniID" />
+          <ScalarProperty Name="KorisniciID" ColumnName="KorisniciID" />
+          <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opis">
+      <EntityTypeMapping TypeName="PizzeriaEntity.Opi">
+        <MappingFragment StoreEntitySet="Opis">
+          <ScalarProperty Name="OpisID" ColumnName="OpisID" />
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
+          <ScalarProperty Name="Sostojki" ColumnName="Sostojki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PoedinecnaPicas">
+      <EntityTypeMapping TypeName="PizzeriaEntity.PoedinecnaPica">
+        <MappingFragment StoreEntitySet="PoedinecnaPica">
+          <ScalarProperty Name="PoedinecnaPicaID" ColumnName="PoedinecnaPicaID" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="OpisID" ColumnName="OpisID" />
+          <ScalarProperty Name="VelicinaID" ColumnName="VelicinaID" />
+          <ScalarProperty Name="KategoriiID" ColumnName="KategoriiID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PizzeriaEntity.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tips">
+      <EntityTypeMapping TypeName="PizzeriaEntity.Tip">
+        <MappingFragment StoreEntitySet="Tip">
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
+          <ScalarProperty Name="ImePica" ColumnName="ImePica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Velicinas">
+      <EntityTypeMapping TypeName="PizzeriaEntity.Velicina">
+        <MappingFragment StoreEntitySet="Velicina">
+          <ScalarProperty Name="VelicinaID" ColumnName="VelicinaID" />
+          <ScalarProperty Name="Golemina" ColumnName="Golemina" />
+          <ScalarProperty Name="Gramaza" ColumnName="Gramaza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
