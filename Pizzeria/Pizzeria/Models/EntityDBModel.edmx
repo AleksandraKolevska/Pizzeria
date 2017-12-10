@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PizzeriaEntity.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PizzeriaEntity.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Kategorii">
           <Key>
             <PropertyRef Name="KategoriiID" />
@@ -50,7 +50,6 @@
             <PropertyRef Name="OpisID" />
           </Key>
           <Property Name="OpisID" Type="int" Nullable="false" />
-          <Property Name="TipID" Type="int" />
           <Property Name="Sostojki" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PoedinecnaPica">
@@ -62,16 +61,7 @@
           <Property Name="OpisID" Type="int" />
           <Property Name="VelicinaID" Type="int" />
           <Property Name="KategoriiID" Type="int" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="TipID" Type="int" />
         </EntityType>
         <EntityType Name="Tip">
           <Key>
@@ -172,6 +162,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PoedinecnaPica_Tip">
+          <End Role="Tip" Type="Self.Tip" Multiplicity="0..1" />
+          <End Role="PoedinecnaPica" Type="Self.PoedinecnaPica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip">
+              <PropertyRef Name="TipID" />
+            </Principal>
+            <Dependent Role="PoedinecnaPica">
+              <PropertyRef Name="TipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PoedinecnaPica_Velicina">
           <End Role="Velicina" Type="Self.Velicina" Multiplicity="0..1" />
           <End Role="PoedinecnaPica" Type="Self.PoedinecnaPica" Multiplicity="*" />
@@ -191,7 +193,6 @@
           <EntitySet Name="Naracka" EntityType="Self.Naracka" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Opis" EntityType="Self.Opis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PoedinecnaPica" EntityType="Self.PoedinecnaPica" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tip" EntityType="Self.Tip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Velicina" EntityType="Self.Velicina" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Meni_Kategorii" Association="Self.FK_Meni_Kategorii">
@@ -222,13 +223,16 @@
             <End Role="Opis" EntitySet="Opis" />
             <End Role="PoedinecnaPica" EntitySet="PoedinecnaPica" />
           </AssociationSet>
+          <AssociationSet Name="FK_PoedinecnaPica_Tip" Association="Self.FK_PoedinecnaPica_Tip">
+            <End Role="Tip" EntitySet="Tip" />
+            <End Role="PoedinecnaPica" EntitySet="PoedinecnaPica" />
+          </AssociationSet>
           <AssociationSet Name="FK_PoedinecnaPica_Velicina" Association="Self.FK_PoedinecnaPica_Velicina">
             <End Role="Velicina" EntitySet="Velicina" />
             <End Role="PoedinecnaPica" EntitySet="PoedinecnaPica" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PizzeriaEntity" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -286,7 +290,6 @@
             <PropertyRef Name="OpisID" />
           </Key>
           <Property Name="OpisID" Type="Int32" Nullable="false" />
-          <Property Name="TipID" Type="Int32" />
           <Property Name="Sostojki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Opis" FromRole="Opis" ToRole="Meni" />
           <NavigationProperty Name="PoedinecnaPicas" Relationship="Self.FK_PoedinecnaPica_Opis" FromRole="Opis" ToRole="PoedinecnaPica" />
@@ -302,16 +305,8 @@
           <Property Name="KategoriiID" Type="Int32" />
           <NavigationProperty Name="Opi" Relationship="Self.FK_PoedinecnaPica_Opis" FromRole="PoedinecnaPica" ToRole="Opis" />
           <NavigationProperty Name="Velicina" Relationship="Self.FK_PoedinecnaPica_Velicina" FromRole="PoedinecnaPica" ToRole="Velicina" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TipID" Type="Int32" />
+          <NavigationProperty Name="Tip" Relationship="PizzeriaEntity.FK_PoedinecnaPica_Tip" FromRole="PoedinecnaPica" ToRole="Tip" />
         </EntityType>
         <EntityType Name="Tip">
           <Key>
@@ -320,6 +315,7 @@
           <Property Name="TipID" Type="Int32" Nullable="false" />
           <Property Name="ImePica" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Tip" FromRole="Tip" ToRole="Meni" />
+          <NavigationProperty Name="PoedinecnaPicas" Relationship="PizzeriaEntity.FK_PoedinecnaPica_Tip" FromRole="Tip" ToRole="PoedinecnaPica" />
         </EntityType>
         <EntityType Name="Velicina">
           <Key>
@@ -434,7 +430,6 @@
           <EntitySet Name="Narackas" EntityType="Self.Naracka" />
           <EntitySet Name="Opis" EntityType="Self.Opi" />
           <EntitySet Name="PoedinecnaPicas" EntityType="Self.PoedinecnaPica" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Tips" EntityType="Self.Tip" />
           <EntitySet Name="Velicinas" EntityType="Self.Velicina" />
           <AssociationSet Name="FK_Meni_Kategorii" Association="Self.FK_Meni_Kategorii">
@@ -469,7 +464,23 @@
             <End Role="Velicina" EntitySet="Velicinas" />
             <End Role="PoedinecnaPica" EntitySet="PoedinecnaPicas" />
           </AssociationSet>
+          <AssociationSet Name="FK_PoedinecnaPica_Tip" Association="PizzeriaEntity.FK_PoedinecnaPica_Tip">
+            <End Role="Tip" EntitySet="Tips" />
+            <End Role="PoedinecnaPica" EntitySet="PoedinecnaPicas" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_PoedinecnaPica_Tip">
+          <End Type="PizzeriaEntity.Tip" Role="Tip" Multiplicity="0..1" />
+          <End Type="PizzeriaEntity.PoedinecnaPica" Role="PoedinecnaPica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip">
+              <PropertyRef Name="TipID" />
+            </Principal>
+            <Dependent Role="PoedinecnaPica">
+              <PropertyRef Name="TipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -524,7 +535,6 @@
             <EntityTypeMapping TypeName="PizzeriaEntity.Opi">
               <MappingFragment StoreEntitySet="Opis">
                 <ScalarProperty Name="OpisID" ColumnName="OpisID" />
-                <ScalarProperty Name="TipID" ColumnName="TipID" />
                 <ScalarProperty Name="Sostojki" ColumnName="Sostojki" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -532,22 +542,12 @@
           <EntitySetMapping Name="PoedinecnaPicas">
             <EntityTypeMapping TypeName="PizzeriaEntity.PoedinecnaPica">
               <MappingFragment StoreEntitySet="PoedinecnaPica">
+                <ScalarProperty Name="TipID" ColumnName="TipID" />
                 <ScalarProperty Name="PoedinecnaPicaID" ColumnName="PoedinecnaPicaID" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
                 <ScalarProperty Name="OpisID" ColumnName="OpisID" />
                 <ScalarProperty Name="VelicinaID" ColumnName="VelicinaID" />
                 <ScalarProperty Name="KategoriiID" ColumnName="KategoriiID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PizzeriaEntity.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -18,6 +18,7 @@ namespace Pizzeria.Models
         public Tip()
         {
             this.Menis = new HashSet<Meni>();
+            this.PoedinecnaPicas = new HashSet<PoedinecnaPica>();
         }
     
         public int TipID { get; set; }
@@ -25,5 +26,7 @@ namespace Pizzeria.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Meni> Menis { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PoedinecnaPica> PoedinecnaPicas { get; set; }
     }
 }

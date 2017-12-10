@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+    <title>Klasik</title>
+</head>
+<body>
+    <div class="row">
+        @foreach (var obj in ViewData.Model)
+        {
+            if (obj.KategoriiID == 1 & obj.Velicina.Golemina == "Mala")
+            {
+
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <a href="#">
+                            @if (obj.Tip.ImePica == "Kapricioza")
+                            {
+                                <img src="~/Content/Pictures/Pica1.png" alt="Kapricioza" width="200px" height="200px" />
+                                <div class="caption">@obj.Tip.ImePica</div>
+                                <div class="caption">@obj.Opi.Sostojki</div>
+
+                            }
+                            else if (obj.Tip.ImePica == "Morska")
+                            {
+                                <img src="~/Content/Pictures/Pica2.png" alt="asd" width="200px" height="200px" />
+                                <div class="caption">@obj.Tip.ImePica</div>
+                                <div class="caption">@obj.Opi.Sostojki</div>
+
+                            }
+                        </a>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+</body>
+</html>

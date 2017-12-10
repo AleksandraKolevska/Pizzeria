@@ -31,7 +31,6 @@ namespace Pizzeria.Models
         public virtual DbSet<Naracka> Narackas { get; set; }
         public virtual DbSet<Opi> Opis { get; set; }
         public virtual DbSet<PoedinecnaPica> PoedinecnaPicas { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tip> Tips { get; set; }
         public virtual DbSet<Velicina> Velicinas { get; set; }
     }

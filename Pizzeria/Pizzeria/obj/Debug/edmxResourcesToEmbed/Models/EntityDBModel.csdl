@@ -54,7 +54,6 @@
       <PropertyRef Name="OpisID" />
     </Key>
     <Property Name="OpisID" Type="Int32" Nullable="false" />
-    <Property Name="TipID" Type="Int32" />
     <Property Name="Sostojki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Opis" FromRole="Opis" ToRole="Meni" />
     <NavigationProperty Name="PoedinecnaPicas" Relationship="Self.FK_PoedinecnaPica_Opis" FromRole="Opis" ToRole="PoedinecnaPica" />
@@ -70,16 +69,8 @@
     <Property Name="KategoriiID" Type="Int32" />
     <NavigationProperty Name="Opi" Relationship="Self.FK_PoedinecnaPica_Opis" FromRole="PoedinecnaPica" ToRole="Opis" />
     <NavigationProperty Name="Velicina" Relationship="Self.FK_PoedinecnaPica_Velicina" FromRole="PoedinecnaPica" ToRole="Velicina" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TipID" Type="Int32" />
+    <NavigationProperty Name="Tip" Relationship="PizzeriaEntity.FK_PoedinecnaPica_Tip" FromRole="PoedinecnaPica" ToRole="Tip" />
   </EntityType>
   <EntityType Name="Tip">
     <Key>
@@ -88,6 +79,7 @@
     <Property Name="TipID" Type="Int32" Nullable="false" />
     <Property Name="ImePica" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Menis" Relationship="Self.FK_Meni_Tip" FromRole="Tip" ToRole="Meni" />
+    <NavigationProperty Name="PoedinecnaPicas" Relationship="PizzeriaEntity.FK_PoedinecnaPica_Tip" FromRole="Tip" ToRole="PoedinecnaPica" />
   </EntityType>
   <EntityType Name="Velicina">
     <Key>
@@ -202,7 +194,6 @@
     <EntitySet Name="Narackas" EntityType="Self.Naracka" />
     <EntitySet Name="Opis" EntityType="Self.Opi" />
     <EntitySet Name="PoedinecnaPicas" EntityType="Self.PoedinecnaPica" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Tips" EntityType="Self.Tip" />
     <EntitySet Name="Velicinas" EntityType="Self.Velicina" />
     <AssociationSet Name="FK_Meni_Kategorii" Association="Self.FK_Meni_Kategorii">
@@ -237,5 +228,21 @@
       <End Role="Velicina" EntitySet="Velicinas" />
       <End Role="PoedinecnaPica" EntitySet="PoedinecnaPicas" />
     </AssociationSet>
+    <AssociationSet Name="FK_PoedinecnaPica_Tip" Association="PizzeriaEntity.FK_PoedinecnaPica_Tip">
+      <End Role="Tip" EntitySet="Tips" />
+      <End Role="PoedinecnaPica" EntitySet="PoedinecnaPicas" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_PoedinecnaPica_Tip">
+    <End Type="PizzeriaEntity.Tip" Role="Tip" Multiplicity="0..1" />
+    <End Type="PizzeriaEntity.PoedinecnaPica" Role="PoedinecnaPica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tip">
+        <PropertyRef Name="TipID" />
+      </Principal>
+      <Dependent Role="PoedinecnaPica">
+        <PropertyRef Name="TipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

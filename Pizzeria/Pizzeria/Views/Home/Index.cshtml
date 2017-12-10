@@ -1,15 +1,36 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div>
-    @foreach(var obj in ViewData.Model)
-    {
-        <ul>
-            <li>
-                @obj.ImePica
-            </li>
-        </ul>
-    }
+<div class=" container" style="padding-top: 10%;">
+    <div class="row">
+        <div class=" col-lg-4">
+            <div class="thumbnail" style="text-align: center;">
+                <a href="#">
+                    <img src="~/Content/Pictures/Pica1.png" alt=" klasik" width="200px" height="200px" />
+                    <h1> Klasik</h1>
+
+                </a>
+            </div>
+        </div>
+        <div class=" col-lg-4">
+            <div class="thumbnail" style="text-align: center;">
+                <a href="#">
+                    <img src="~/Content/Pictures/Pica2.png" alt="Posna" width="200px" height="200px" />
+                    <h1> Posna</h1>
+
+                </a>
+            </div>
+        </div>
+        <div class=" col-lg-4">
+            <div class="thumbnail" style="text-align: center;">
+                <a href="#">
+                    <img src="~/Content/Pictures/Pica3.png" alt="Vegetarijana" width="200px" height="200px" />
+                    <h1> Vegetarijana</h1>
+                </a>
+            </div>
+        </div>
+    </div>
 
 </div>

@@ -17,23 +17,12 @@ namespace Pizzeria.Controllers
         }
         public ActionResult Index()
         {
-            ViewData.Model = pizzaEntity.Tips.ToList();
-            ViewData.Model = (from c in pizzaEntity.Tips select c);
+            ViewData.Model = pizzaEntity.Kategoriis.ToList();
+            ViewData.Model = (from k in pizzaEntity.Kategoriis select k);
+        
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+    
     }
 }

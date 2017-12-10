@@ -22,7 +22,6 @@ namespace Pizzeria.Models
         }
     
         public int OpisID { get; set; }
-        public Nullable<int> TipID { get; set; }
         public string Sostojki { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
