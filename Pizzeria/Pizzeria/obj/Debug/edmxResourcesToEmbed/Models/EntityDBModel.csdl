@@ -13,14 +13,14 @@
       <PropertyRef Name="KorisniciID" />
     </Key>
     <Property Name="KorisniciID" Type="Int32" Nullable="false" />
-    <Property Name="EMBG" Type="Int32" />
     <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Grad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Narackas" Relationship="Self.FK_Naracka_Korisnici" FromRole="Korisnici" ToRole="Naracka" />
+    <Property Name="Godini" Type="Int32" />
   </EntityType>
   <EntityType Name="Meni">
     <Key>
@@ -232,6 +232,7 @@
       <End Role="Tip" EntitySet="Tips" />
       <End Role="PoedinecnaPica" EntitySet="PoedinecnaPicas" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="PizzeriaEntity.sysdiagram" />
   </EntityContainer>
   <Association Name="FK_PoedinecnaPica_Tip">
     <End Type="PizzeriaEntity.Tip" Role="Tip" Multiplicity="0..1" />
@@ -245,4 +246,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

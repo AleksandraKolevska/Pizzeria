@@ -1,0 +1,29 @@
+﻿@model Pizzeria.Models.Korisnici
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("SaveRecord", "Test", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.Ime, new { @class = "form-control", @placeholder = "Ime" })
+        @Html.TextBoxFor(model => model.Prezime, new { @class = "form-control", @placeholder = "Prezime" })
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email" })
+        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+        @Html.TextBoxFor(model => model.Grad, new { @class = "form-control", @placeholder = "Grad" })
+        @Html.TextBoxFor(model => model.Adresa, new { @class = "form-control", @placeholder = "Adresa" })
+        @Html.TextBoxFor(model => model.Godini, new { @class = "form-control", @placeholder = "Godini" })
+        <input type="submit" value=" Submit" class="btn btn-block btn-primary"/>
+}
+    </div>
+</body>
+</html>

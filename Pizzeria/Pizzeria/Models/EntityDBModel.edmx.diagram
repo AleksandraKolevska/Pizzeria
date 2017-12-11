@@ -22,6 +22,7 @@
         <AssociationConnector Association="PizzeriaEntity.FK_PoedinecnaPica_Opis" ManuallyRouted="false" />
         <AssociationConnector Association="PizzeriaEntity.FK_PoedinecnaPica_Velicina" ManuallyRouted="false" />
         <AssociationConnector Association="PizzeriaEntity.FK_PoedinecnaPica_Tip" />
+        <EntityTypeShape EntityType="PizzeriaEntity.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

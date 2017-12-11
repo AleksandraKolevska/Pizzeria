@@ -22,7 +22,22 @@ namespace Pizzeria.Controllers
                              
             return View();
         }
-        
+        public ActionResult Vegetarijana()
+        {
+            ViewData.Model = pizzaEntity.PoedinecnaPicas.ToList();
+            var obj = (from o in pizzaEntity.PoedinecnaPicas select o);
+
+            return View();
+        }
+        public ActionResult Posna()
+        {
+            ViewData.Model = pizzaEntity.PoedinecnaPicas.ToList();
+            var obj = (from o in pizzaEntity.PoedinecnaPicas select o);
+
+            return View();
+        }
+
+
 
     }
 }

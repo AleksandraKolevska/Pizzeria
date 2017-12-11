@@ -1,0 +1,41 @@
+﻿@model Pizzeria.Models.Korisnici
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegistrationForm</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Ime:@Html.TextBoxFor(x => x.Ime)
+        </p>
+        <p>
+            Prezime:@Html.TextBoxFor(x => x.Prezime)
+        </p>
+        <p>
+            Email:@Html.TextBoxFor(x => x.Email)
+        </p>
+        <p>
+            Password:@Html.TextBoxFor(x => x.Password)
+        </p>
+        <p>
+            Adresa:@Html.TextBoxFor(x => x.Adresa)
+        </p>
+        <p>
+            Grad:@Html.TextBoxFor(x => x.Grad)
+        </p>
+        <p>
+            EMBG:@Html.TextBoxFor(x => x.EMBG)
+        </p>
+        <input type="submit" value="Register Me"/>
+    }
+</body>
+</html>

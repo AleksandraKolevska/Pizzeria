@@ -21,7 +21,7 @@ namespace Pizzeria.Models
         }
     
         public int KorisniciID { get; set; }
-        public Nullable<int> EMBG { get; set; }
+        public int Godini { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Email { get; set; }

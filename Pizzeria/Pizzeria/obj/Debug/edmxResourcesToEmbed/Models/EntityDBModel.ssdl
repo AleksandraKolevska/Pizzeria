@@ -11,12 +11,12 @@
     <Key>
       <PropertyRef Name="KorisniciID" />
     </Key>
-    <Property Name="KorisniciID" Type="int" Nullable="false" />
-    <Property Name="EMBG" Type="int" />
+    <Property Name="KorisniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Godini" Type="int" />
     <Property Name="Ime" Type="nvarchar" MaxLength="20" />
     <Property Name="Prezime" Type="nvarchar" MaxLength="30" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Grad" Type="nvarchar" MaxLength="20" />
     <Property Name="Adresa" Type="nvarchar" MaxLength="50" />
   </EntityType>
@@ -57,6 +57,16 @@
     <Property Name="VelicinaID" Type="int" />
     <Property Name="KategoriiID" Type="int" />
     <Property Name="TipID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Tip">
     <Key>
@@ -188,6 +198,7 @@
     <EntitySet Name="Naracka" EntityType="Self.Naracka" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Opis" EntityType="Self.Opis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PoedinecnaPica" EntityType="Self.PoedinecnaPica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tip" EntityType="Self.Tip" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Velicina" EntityType="Self.Velicina" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Meni_Kategorii" Association="Self.FK_Meni_Kategorii">

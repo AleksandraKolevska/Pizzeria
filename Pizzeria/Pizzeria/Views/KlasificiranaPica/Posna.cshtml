@@ -1,33 +1,33 @@
 ﻿<html>
 <head>
-    <title>Klasik</title>
+    <title>Vegetarijana</title>
 </head>
 <body>
     @foreach (var obj in ViewData.Model)
     {
-        if (obj.KategoriiID == 1 & obj.Velicina.Golemina == "Mala")
+        if (obj.KategoriiID == 2 & obj.Velicina.Golemina == "Mala")
         {
             <div class="row">
                 <div class="col-md-3">
                     <div class="thumbnail">
                         <a href="#">
-                            @if (obj.Tip.ImePica == "Kapricioza")
+                            @if (obj.Tip.ImePica == "Margarita")
                             {
-                                <img src="~/Content/Pictures/Pica1.png" alt="Kapricioza" width="200px" height="200px" />
+                                <img src="~/Content/Pictures/Pica1.png" alt="Margarita" width="200px" height="200px" />
                                 <div class="caption">@obj.Tip.ImePica</div>
                                 <div class="caption">@obj.Opi.Sostojki</div>
 
                             }
-                            else if (obj.Tip.ImePica == "Morska")
+                            else if (obj.Tip.ImePica == "Hawaii")
                             {
-                                <img src="~/Content/Pictures/Pica2.png" alt="Morska" width="200px" height="200px" />
+                                <img src="~/Content/Pictures/Pica2.png" alt="Hawaii" width="200px" height="200px" />
                                 <div class="caption">@obj.Tip.ImePica</div>
                                 <div class="caption">@obj.Opi.Sostojki</div>
 
                             }
-                            else if (obj.Tip.ImePica == "Elizabet")
+                            else if (obj.Tip.ImePica == "Napolitana")
                             {
-                                <img src="~/Content/Pictures/Pica3.png" alt="Elizabet" width="200px" height="200px" />
+                                <img src="~/Content/Pictures/Pica3.png" alt="Napolitana" width="200px" height="200px" />
                                 <div class="caption">@obj.Tip.ImePica</div>
                                 <div class="caption">@obj.Opi.Sostojki</div>
 
@@ -41,3 +41,4 @@
 
 </body>
 </html>
+
