@@ -12,6 +12,7 @@
     <EntitySetMapping Name="Korisnicis">
       <EntityTypeMapping TypeName="PizzeriaEntity.Korisnici">
         <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Godini" ColumnName="Godini" />
           <ScalarProperty Name="KorisniciID" ColumnName="KorisniciID" />
           <ScalarProperty Name="Ime" ColumnName="Ime" />

@@ -1,0 +1,135 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="~/Scripts/jquery-3.2.1.js"></script>
+    <title>Index</title>
+
+</head>
+<body>
+    <div>
+        <select id="tip"><option value=0>---------</option></select>
+        <select id="golemina"><option value=0>---------</option></select>
+        <input type="text" id="kolicina" />
+    </div>
+    <h1 id="box"></h1>
+    <script>
+    var tip = [];
+    var golemina = [];
+   @{
+       var brojac = 0;
+       var i = 0;
+       var n = 0;
+       }
+
+    @foreach (var c in ViewData.Model)
+    {
+        foreach (var b in c)
+        {
+            if (brojac == 0)
+            {
+            @:tip.push({@i: "@b"});
+             i++;
+            } else if(brojac == 1)
+            {
+               @:golemina.push({@n: "@b"});
+                n++;
+            }
+
+
+        }
+        brojac++;
+    }
+
+    var select = document.getElementById("tip");
+    for (var j = 0; j <tip.length; j++) {
+        var option = document.createElement('option');
+        option.text = tip[j][j];
+        option.value = j + 1;
+        select.add(option);
+    }
+
+    var select = document.getElementById("golemina");
+    for (var j = 0; j < golemina.length; j++) {
+        var option = document.createElement('option');
+        option.text = golemina[j][j];
+        option.value = j + 1;
+        select.add(option);
+        }
+
+        $("#kolicina").focusout(function () {
+            var tipID = $("#tip").val();
+            var goleminaID = $("#golemina").val();
+            var kolicina = $("#kolicina").val();
+            if (tipID != 0 && goleminaID != 0 && kolicina != 0) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Naracka/Kolicina',
+                    data: {
+                        tipId: tipID,
+                        goleminaId: goleminaID
+                    },
+                    success: function (response) {
+                        var cena = response * kolicina;
+                        $("#box").text(cena);
+
+                    }
+                });
+            }
+            })
+        
+        $('#golemina').change(function () {
+            var tipID = $("#tip").val();
+            var goleminaID = $("#golemina").val();
+
+            var kolicina = $("#kolicina").val();
+
+            if (tipID != 0 && goleminaID != 0 && kolicina != 0) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Naracka/Kolicina',
+                    data: {
+                        tipId: tipID,
+                        goleminaId: goleminaID
+                    },
+                    success: function (response) {
+                        var cena = response * kolicina;
+                        $("#box").text(cena);
+                    }
+                });
+            }
+        });
+
+        $('#tip').change(function () {
+            var tipID = $("#tip").val();
+            var goleminaID = $("#golemina").val();
+            var kolicina = $("#kolicina").val();
+
+            if (tipID != 0 && goleminaID != 0 && kolicina != 0) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Naracka/Kolicina',
+                    data: {
+                        tipId: tipID,
+                        goleminaId: goleminaID
+                    },
+                    success: function (response) {
+                        var cena = response * kolicina;
+                        $("#box").text(cena);
+                    }
+                });
+            }
+        });
+     
+
+    </script>
+</body>
+</html>
+

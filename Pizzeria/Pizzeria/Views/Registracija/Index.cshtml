@@ -1,6 +1,7 @@
 ﻿@model Pizzeria.Models.Korisnici
 
 @{
+    ViewBag.Title = "Index";
     Layout = null;
 }
 
@@ -13,7 +14,7 @@
 </head>
 <body>
     <div>
-        @using (Html.BeginForm("SaveRecord", "Test", FormMethod.Post))
+        @using (Html.BeginForm("SaveRecord", "Registracija", FormMethod.Post))
     {
         @Html.TextBoxFor(model => model.Ime, new { @class = "form-control", @placeholder = "Ime" })
         @Html.TextBoxFor(model => model.Prezime, new { @class = "form-control", @placeholder = "Prezime" })
@@ -22,7 +23,9 @@
         @Html.TextBoxFor(model => model.Grad, new { @class = "form-control", @placeholder = "Grad" })
         @Html.TextBoxFor(model => model.Adresa, new { @class = "form-control", @placeholder = "Adresa" })
         @Html.TextBoxFor(model => model.Godini, new { @class = "form-control", @placeholder = "Godini" })
-        <input type="submit" value=" Submit" class="btn btn-block btn-primary"/>
+        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Username" })
+
+        <input type="submit" value=" Submit" class="btn btn-block btn-primary" />
 }
     </div>
 </body>

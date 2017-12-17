@@ -24,12 +24,13 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Grad" Type="nvarchar" MaxLength="20" />
           <Property Name="Adresa" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Meni">
           <Key>
             <PropertyRef Name="MeniID" />
           </Key>
-          <Property Name="MeniID" Type="int" Nullable="false" />
+          <Property Name="MeniID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipID" Type="int" />
           <Property Name="VelicinaID" Type="int" />
           <Property Name="KategoriiID" Type="int" />
@@ -268,6 +269,7 @@
           <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Narackas" Relationship="Self.FK_Naracka_Korisnici" FromRole="Korisnici" ToRole="Naracka" />
           <Property Name="Godini" Type="Int32" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Meni">
           <Key>
@@ -520,6 +522,7 @@
           <EntitySetMapping Name="Korisnicis">
             <EntityTypeMapping TypeName="PizzeriaEntity.Korisnici">
               <MappingFragment StoreEntitySet="Korisnici">
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Godini" ColumnName="Godini" />
                 <ScalarProperty Name="KorisniciID" ColumnName="KorisniciID" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />

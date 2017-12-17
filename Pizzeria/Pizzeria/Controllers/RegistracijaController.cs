@@ -7,7 +7,7 @@ using Pizzeria.Models;
 
 namespace Pizzeria.Controllers
 {
-    public class TestController : Controller
+    public class RegistracijaController : Controller
     {
         // GET: Test
         public ActionResult Index()
@@ -15,7 +15,7 @@ namespace Pizzeria.Controllers
             PizzeriaEntities db = new PizzeriaEntities();
             return View();
         }
-        public ActionResult SaveRecord (Korisnici model)
+        public ActionResult SaveRecord(Korisnici model)
         {
             try
             {
@@ -30,10 +30,11 @@ namespace Pizzeria.Controllers
                 kor.KorisniciID = model.KorisniciID;
                 kor.Adresa = model.Adresa;
                 kor.Godini = model.Godini;
+                kor.Username = model.Username;
 
                 db.Korisnicis.Add(kor);
                 db.SaveChanges();
-               
+
             }
             catch (Exception ex)
             {

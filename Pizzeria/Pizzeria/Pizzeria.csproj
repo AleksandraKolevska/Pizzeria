@@ -206,7 +206,9 @@
     <Compile Include="Controllers\KlasificiranaPicaController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\MeniController.cs" />
+    <Compile Include="Controllers\NarackaController.cs" />
+    <Compile Include="Controllers\RegistracijaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -288,9 +290,13 @@
     <Content Include="Models\EntityDBModel.edmx.diagram">
       <DependentUpon>EntityDBModel.edmx</DependentUpon>
     </Content>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -339,7 +345,10 @@
     <Content Include="Views\Korisnici\Congratulation.cshtml" />
     <Content Include="Views\KlasificiranaPica\Posna.cshtml" />
     <Content Include="Views\KlasificiranaPica\Vegetarijana.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Registracija\Index.cshtml" />
+    <Content Include="Views\Meni\Index.cshtml" />
+    <Content Include="Views\Naracka\Index.cshtml" />
+    <Content Include="Views\Naracka\Kolicina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -356,7 +365,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

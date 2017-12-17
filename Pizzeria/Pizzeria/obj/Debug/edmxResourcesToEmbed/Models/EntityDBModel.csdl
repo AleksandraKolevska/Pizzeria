@@ -21,6 +21,7 @@
     <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Narackas" Relationship="Self.FK_Naracka_Korisnici" FromRole="Korisnici" ToRole="Naracka" />
     <Property Name="Godini" Type="Int32" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Meni">
     <Key>
