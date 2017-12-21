@@ -1,17 +1,93 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<!DOCTYPE html>
+<html>
+<head>
 
-<address>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+        }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color:#660000">
+    <h2 style="color: aliceblue">Kontakt</h2>
+    <h3 style="color: aliceblue">Nasata lokacija:</h3style="color:>
+    <div id="map"></div>
+    <!--<address>
     One Microsoft Way<br />
     Redmond, WA 98052-6399<br />
     <abbr title="Phone">P:</abbr>
     425.555.0100
-</address>
-
-<address>
+    </address>-->
+    <script>
+        function initMap() {
+            var uluru = { lat: 41.031230, lng:  21.263877 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9D6w4Ob4MDyRqVBQ8Ml6Smg4J0hIDpZA&callback=initMap">
+    </script>
+    <br />
+    <h4 style="color: aliceblue">Pronadete ne na socijalnite mrezi:</h4>
+    <a href="https://www.facebook.com/" class="fa fa-facebook" _blank></a>
+    <a href="https://twitter.com/login" class="fa fa-twitter" _blank></a>
+    <a href="https://www.instagram.com/?hl=en" class="fa fa-instagram" _blank></a>
+    <a href="https://www.google.com/" class="fa fa-google" _blank></a>
+    <a href="https://www.youtube.com/" class="fa fa-youtube" _blank></a>
+    <!--<address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    </address>-->
+</body>
+</html>

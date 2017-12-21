@@ -15,8 +15,8 @@
     <Property Name="Godini" Type="int" />
     <Property Name="Ime" Type="nvarchar" MaxLength="20" />
     <Property Name="Prezime" Type="nvarchar" MaxLength="30" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="Grad" Type="nvarchar" MaxLength="20" />
     <Property Name="Adresa" Type="nvarchar" MaxLength="50" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" />

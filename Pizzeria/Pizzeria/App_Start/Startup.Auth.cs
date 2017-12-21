@@ -58,11 +58,11 @@ namespace Pizzeria
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "172218985911-i0sobgqag8487e036hsjrutjd1nj6ll4.apps.googleusercontent.com",
+                ClientSecret = "TjDoZY5LxcYGpUzI5wFvB4mp"
+            });
         }
     }
 }

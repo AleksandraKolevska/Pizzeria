@@ -1,41 +1,82 @@
-﻿<html>
+﻿
+
+<html>
 <head>
-    <title>Posna</title>
+    <title>Vegetarijana</title>
+    <style>
+        a {
+            color: #660000;
+        }
+        #myImg:hover {
+            transform: scale(1.2);
+        }
+    </style>
 </head>
-<body>
+<body style="background-color:#660000">
     @foreach (var obj in ViewData.Model)
     {
-        if (obj.KategoriiID == 3 & obj.Velicina.Golemina == "Mala")
+        if (obj.KategoriiID == 2 & obj.Velicina.Golemina == "Mala")
         {
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="thumbnail">
-                        <a href="#">
-                            @if (obj.Tip.ImePica == "Posna")
-                            {
-                                <img src="~/Content/Pictures/Pica1.png" alt="Posna" width="200px" height="200px" />
-                                <div class="caption">@obj.Tip.ImePica</div>
-                                <div class="caption">@obj.Opi.Sostojki</div>
+            if (obj.Tip.ImePica == "Margarita")
+            {<p></p>
+                <div class="thumbnail" style ="background-color:#ffece6">
+                    <div class="row">
 
-                            }
-                            else if (obj.Tip.ImePica == "Tuna")
-                            {
-                                <img src="~/Content/Pictures/Pica2.png" alt="Tuna" width="200px" height="200px" />
-                                <div class="caption">@obj.Tip.ImePica</div>
-                                <div class="caption">@obj.Opi.Sostojki</div>
-
-                            }
-                            else if (obj.Tip.ImePica == "Napoli")
-                            {
-                                <img src="~/Content/Pictures/Pica3.png" alt="Napoli" width="200px" height="200px" />
-                                <div class="caption">@obj.Tip.ImePica</div>
-                                <div class="caption">@obj.Opi.Sostojki</div>
-
-                            }
-                        </a>
+                        <div class="col-md-3">
+                            <a href="/Image/Margarita">
+                                <img id="myImg" src="~/Content/Pictures/2margaritaVV.png" alt="Margarita" width="200px" height="200px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Image/Margarita">
+                                <h1>@obj.Tip.ImePica</h1>
+                                </a>
+                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <p></p>
+            }
+            else if (obj.Tip.ImePica == "Hawaii")
+            {
+                <div class="thumbnail" style ="background-color:#ffece6">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <a href="/Image/Hawaii">
+                                <img id="myImg" src="~/Content/Pictures/3hawaiiVV.png" alt="Hawaii" width="200px" height="200px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Image/Hawaii">
+                                <h1>@obj.Tip.ImePica</h1>
+                                </a>
+                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+            }
+            else if (obj.Tip.ImePica == "Napoli")
+            {
+                <div class="thumbnail" style ="background-color:#ffece6">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <a href="/Image/Napoli">
+                                <img  id="myImg" src="~/Content/Pictures/4veganaVV.png" alt="Napoli" width="200px" height="200px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Image/Napoli">
+                                <h1>@obj.Tip.ImePica</h1>
+                                </a>
+                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                        </div>
+                    </div>
+                </div>
+
+            }
         }
     }
 

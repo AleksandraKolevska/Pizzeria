@@ -36,6 +36,13 @@ namespace Pizzeria.Controllers
 
             return View();
         }
+        public ActionResult MeniPici1()
+        {
+            ViewData.Model = pizzaEntity.PoedinecnaPicas.ToList();
+            var obj = (from o in pizzaEntity.PoedinecnaPicas select o);
+
+            return View();
+        }
 
 
 

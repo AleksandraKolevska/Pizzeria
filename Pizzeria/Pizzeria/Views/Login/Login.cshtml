@@ -1,0 +1,43 @@
+﻿@model Pizzeria.Models.Korisnici
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body style="background-color:#660000">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h2>Logirajte se</h2>
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                <fieldset>
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    @if (@ViewBag.Message != null)
+                {
+                    <div style="border: 1px solid red">
+                        @ViewBag.Message
+                    </div>
+            }
+                    <h5>Vnesete korisnicko ime:</h5>
+                    @Html.TextBoxFor(a => a.Username, new { @class = "form-control", @placeholder = "Korisnicko Ime", requred = true })
+                    @Html.ValidationMessageFor(a => a.Username)
+                    <h5>Vnesete password:</h5>
+                    @Html.PasswordFor(a => a.Password, new { @class = "form-control", @placeholder = "Password", requred = true })
+                    @Html.ValidationMessageFor(a => a.Password)
+                    <h6></h6>
+                    <input type="submit" value="Login" class="btn btn-block btn-primary" />
+                    <h6>Nemate korisnik ?  <a href="/Registracija/Index">Kreirajte korisnik</a></h6>
+
+                </fieldset>
+        }
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

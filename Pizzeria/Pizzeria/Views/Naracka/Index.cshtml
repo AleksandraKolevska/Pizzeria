@@ -1,25 +1,36 @@
 ﻿
-
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
 <head>
+    
     <meta name="viewport" content="width=device-width" />
     <script type="text/javascript" src="~/Scripts/jquery-3.2.1.js"></script>
     <title>Index</title>
 
 </head>
-<body>
-    <div>
-        <select id="tip"><option value=0>---------</option></select>
-        <select id="golemina"><option value=0>---------</option></select>
-        <input type="text" id="kolicina" />
+<body style="background-color:#660000">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="container">
+                <div>
+                    <h4>Izberete Pica:</h4><select id="tip"><option value=0>---------</option></select>
+                    <h4>Izberete Golemina:</h4><select id="golemina"><option value=0>---------</option></select>
+                    <h4>Izberete Kolicina:</h4><input type="text" id="kolicina" />
+                    <h4></h4>
+                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <div>
+                     <button>Cena:</button>
+                    <textarea id="box"  rows="1" cols="15"></textarea>
+                </div>
+            </div>
+        </div>
     </div>
-    <h1 id="box"></h1>
+
     <script>
     var tip = [];
     var golemina = [];
@@ -84,7 +95,7 @@
                 });
             }
             })
-        
+
         $('#golemina').change(function () {
             var tipID = $("#tip").val();
             var goleminaID = $("#golemina").val();
@@ -127,7 +138,7 @@
                 });
             }
         });
-     
+
 
     </script>
 </body>

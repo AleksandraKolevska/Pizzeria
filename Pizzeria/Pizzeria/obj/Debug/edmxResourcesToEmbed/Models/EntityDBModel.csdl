@@ -15,8 +15,8 @@
     <Property Name="KorisniciID" Type="Int32" Nullable="false" />
     <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Grad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Narackas" Relationship="Self.FK_Naracka_Korisnici" FromRole="Korisnici" ToRole="Naracka" />

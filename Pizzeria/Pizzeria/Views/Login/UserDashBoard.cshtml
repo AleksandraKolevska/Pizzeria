@@ -1,0 +1,60 @@
+﻿@model Pizzeria.Models.Korisnici
+
+@{
+    ViewBag.Title = "UserDashBoard";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    <style>
+        .jumbotron-billboard .img {
+            margin-bottom: 0px;
+            opacity: 0.2;
+            color: #fff;
+            background: #000 url("/Content/Pictures/81.jpg") top center no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .jumbotron h2 {
+            margin-top: 0;
+        }
+
+        .jumbotron {
+            position: relative;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+            .jumbotron .container {
+                position: relative;
+                z-index: 2;
+            }
+    </style>
+</head>
+<body>
+    <div class="row">
+
+        <div class="jumbotron jumbotron-billboard">
+            <div class="img"></div>
+            <div class="container">
+                @if (Session["UserName"] != null)
+                {
+                    <h1> Dobredojde @Session["UserName"].ToString() </h1>
+                }
+                <script>
+    sessionStorage.setItem('UserName','@Session["UserName"].ToString()');
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

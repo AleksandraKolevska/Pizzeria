@@ -2,35 +2,84 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<!Doctype html>
+<html>
+<head>
+    <title>Pocetna</title>
+    <style>
+        a {
+            color: #660000;
+        }
+        .jumbotron-billboard .img {
+            margin-bottom: 0px;
+            color: #fff;
+            background: #000 url("/Content/Pictures/pizza-3-2.jpg") top center no-repeat;
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
 
-<div class=" container" style="padding-top: 10%;">
-    <div class="row">
-        <div class=" col-lg-4">
-            <div class="thumbnail" style="text-align: center;">
-                <a href="/KlasificiranaPica/KlasaPica">
-                    <img src="~/Content/Pictures/Pica1.png" alt=" klasik" width="200px" height="200px" />
-                    <h1> Klasik</h1>
+        .jumbotron h2 {
+            margin-top: 0;
+        }
 
-                </a>
-            </div>
-        </div>
-        <div class=" col-lg-4">
-            <div class="thumbnail" style="text-align: center;">
-                <a href="/KlasificiranaPica/Vegetarijana">
-                    <img src="~/Content/Pictures/Pica2.png" alt="Vegetarijana" width="200px" height="200px" />
-                    <h1> Vegetarijana</h1>
+        .jumbotron {
+            position: relative;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
 
-                </a>
-            </div>
-        </div>
-        <div class=" col-lg-4">
-            <div class="thumbnail" style="text-align: center;">
-                <a href="/KlasificiranaPica/Posna">
-                    <img src="~/Content/Pictures/Pica3.png" alt="Posna" width="200px" height="200px" />
-                    <h1> Posna</h1>
-                </a>
-            </div>
+            .jumbotron .container {
+                position: relative;
+                z-index: 2;
+            }
+    </style>
+
+</head>
+<body style="background-color:#660000">
+    
+        <div class="jumbotron jumbotron-billboard">
+            <div class="img"></div>
+            <div class="container">
+                
         </div>
     </div>
+    <div class=" container" style="padding-top: 27%;">
+        <div class="row">
+            <div class=" col-lg-4">
+                <div class="thumbnail" style="text-align: center;background-color: #ffd9cc">
+                    <a href="/KlasificiranaPica/KlasaPica">
+                        <img src="~/Content/Pictures/klasikPica.png" alt=" klasik" width="200px" height="200px" />
+                        <h1> Klasik</h1>
 
-</div>
+                    </a>
+                </div>
+            </div>
+            <div class=" col-lg-4">
+                <div class="thumbnail" style="text-align: center;background-color: #ffd9cc">
+                    <a href="/KlasificiranaPica/Vegetarijana">
+                        <img src="~/Content/Pictures/VegetarijanaPica.png" alt="Vrgrtarijana" width="200px" height="200px" />
+                        <h1> Vegetarijana</h1>
+
+                    </a>
+                </div>
+            </div>
+            <div class=" col-lg-4">
+                <div class="thumbnail" style="text-align: center;background-color: #ffd9cc">
+                    <a href="/KlasificiranaPica/Posna">
+                        <img src="~/Content/Pictures/PosnaPica.png" alt="PosnaPica" width="200px" height="200px" />
+                        <h1> Posna</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

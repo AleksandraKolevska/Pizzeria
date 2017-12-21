@@ -1,41 +1,80 @@
 ﻿<html>
 <head>
     <title>Klasik</title>
+    <style>
+        a {
+            color: #660000;
+        }
+        #myImg:hover{
+            transform:scale(1.2);
+        }</style>
 </head>
-<body>
+<body style="background-color:#660000">
     @foreach (var obj in ViewData.Model)
     {
         if (obj.KategoriiID == 1 & obj.Velicina.Golemina == "Mala")
         {
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="thumbnail">
-                        <a href="#">
-                            @if (obj.Tip.ImePica == "Kapricioza")
-                            {
-                                <img src="~/Content/Pictures/Pica1.png" alt="Kapricioza" width="200px" height="200px" />
-                                <div class="caption">@obj.Tip.ImePica</div>
-                                <div class="caption">@obj.Opi.Sostojki</div>
+            if (obj.Tip.ImePica == "Kapricioza")
+            {
+                <p></p>
+                <div class="thumbnail" style ="background-color:#ffece6">
+                    <div class="row">
 
-                            }
-                            else if (obj.Tip.ImePica == "Morska")
-                            {
-                                <img src="~/Content/Pictures/Pica2.png" alt="Morska" width="200px" height="200px" />
-                                <div class="caption">@obj.Tip.ImePica</div>
-                                <div class="caption">@obj.Opi.Sostojki</div>
-
-                            }
-                            else if (obj.Tip.ImePica == "Elizabet")
-                            {
-                                <img src="~/Content/Pictures/Pica3.png" alt="Elizabet" width="200px" height="200px" />
-                                <div class="caption">@obj.Tip.ImePica</div>
-                                <div class="caption">@obj.Opi.Sostojki</div>
-
-                            }
-                        </a>
+                        <div class="col-md-3">
+                            <a href="/Image/Kapricioza">
+                                <img id="myImg" src="~/Content/Pictures/1KapriciozaKK.png" alt="Kapricioza" width="200px" height="200px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Image/Kapricioza">
+                                <h1>@obj.Tip.ImePica</h1>
+                                </a>
+                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <p></p>
+            }
+            else if (obj.Tip.ImePica == "Morska")
+            {
+                <div class="thumbnail" style ="background-color:#ffece6">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="/Image/morska">
+                                <img id="myImg"  src="~/Content/Pictures/6morskaKK.png" alt="Morska" width="200px" height="200px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Image/morska">
+                                <h1>@obj.Tip.ImePica</h1>
+                                </a>
+                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+            }
+            else if (obj.Tip.ImePica == "Elizabet")
+            {
+                <div class="thumbnail" style ="background-color:#ffece6">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <a href="/Image/Elizabet">
+                                <img id="myImg"  src="~/Content/Pictures/7ElizabetKK.png" alt="Elizabet" width="200px" height="200px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Image/Elizabet">
+                                <h1>@obj.Tip.ImePica</h1>
+                                </a>
+                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
         }
     }
 
