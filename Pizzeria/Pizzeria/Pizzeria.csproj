@@ -205,7 +205,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\KlasificiranaPicaController.cs" />
-    <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeniController.cs" />
@@ -340,16 +339,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\KlasificiranaPica\KlasaPica.cshtml" />
-    <Content Include="Views\Korisnici\Index.cshtml" />
-    <Content Include="Views\Korisnici\RegistrationForm.cshtml" />
-    <Content Include="Views\Korisnici\Congratulation.cshtml" />
     <Content Include="Views\KlasificiranaPica\Posna.cshtml" />
     <Content Include="Views\KlasificiranaPica\Vegetarijana.cshtml" />
     <Content Include="Views\Registracija\Index.cshtml" />
     <Content Include="Views\Meni\Index.cshtml" />
     <Content Include="Views\Naracka\Index.cshtml" />
     <Content Include="Views\Naracka\Kolicina.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
     <Content Include="Views\Login\UserDashBoard.cshtml" />
     <Content Include="Views\Image\Kapricioza.cshtml" />
     <Content Include="Views\Image\morska.cshtml" />

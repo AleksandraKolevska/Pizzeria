@@ -5,9 +5,13 @@
         a {
             color: #660000;
         }
-        #myImg:hover{
-            transform:scale(1.2);
-        }</style>
+
+        #myImg:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body style="background-color:#660000">
     @foreach (var obj in ViewData.Model)
@@ -17,7 +21,7 @@
             if (obj.Tip.ImePica == "Kapricioza")
             {
                 <p></p>
-                <div class="thumbnail" style ="background-color:#ffece6">
+                <div class="thumbnail" style="background-color:#ffece6">
                     <div class="row">
 
                         <div class="col-md-3">
@@ -28,8 +32,8 @@
                         <div class="col-md-6">
                             <a href="/Image/Kapricioza">
                                 <h1>@obj.Tip.ImePica</h1>
-                                </a>
-                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                            </a>
+                            <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
                         </div>
                     </div>
                 </div>
@@ -37,18 +41,18 @@
             }
             else if (obj.Tip.ImePica == "Morska")
             {
-                <div class="thumbnail" style ="background-color:#ffece6">
+                <div class="thumbnail" style="background-color:#ffece6">
                     <div class="row">
                         <div class="col-md-3">
                             <a href="/Image/morska">
-                                <img id="myImg"  src="~/Content/Pictures/6morskaKK.png" alt="Morska" width="200px" height="200px" />
+                                <img id="myImg" src="~/Content/Pictures/6morskaKK.png" alt="Morska" width="200px" height="200px" />
                             </a>
                         </div>
                         <div class="col-md-6">
                             <a href="/Image/morska">
                                 <h1>@obj.Tip.ImePica</h1>
-                                </a>
-                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                            </a>
+                            <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
                         </div>
                     </div>
                 </div>
@@ -56,19 +60,19 @@
             }
             else if (obj.Tip.ImePica == "Elizabet")
             {
-                <div class="thumbnail" style ="background-color:#ffece6">
+                <div class="thumbnail" style="background-color:#ffece6">
                     <div class="row">
 
                         <div class="col-md-3">
                             <a href="/Image/Elizabet">
-                                <img id="myImg"  src="~/Content/Pictures/7ElizabetKK.png" alt="Elizabet" width="200px" height="200px" />
+                                <img id="myImg" src="~/Content/Pictures/7ElizabetKK.png" alt="Elizabet" width="200px" height="200px" />
                             </a>
                         </div>
                         <div class="col-md-6">
                             <a href="/Image/Elizabet">
                                 <h1>@obj.Tip.ImePica</h1>
-                                </a>
-                                <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
+                            </a>
+                            <h4>Sostojki</h4><h3>@obj.Opi.Sostojki</h3>
                         </div>
                     </div>
                 </div>
@@ -77,6 +81,33 @@
 
         }
     }
+    <script>
+                       var log = sessionStorage.getItem('UserName');
+                    if (document.getElementById("menuRightLogin") && log != null) {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                            var html = '<ul id="menuRightLogoff" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Naracka", "Index", "Naracka", routeValues: null, htmlAttributes: new { id = "registracijaLink" })</li>' +
+                                '<li><a id="logOff" href="/Account/Login">Log off</a></li>' +
+                                '</ul>';
+
+
+                        $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+                        $('#logOff').click(function () { sessionStorage.clear();});
+                    } else {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                        $("#formNaracka").submit(function (event) {
+                            event.preventDefault();
+                        });
+                             var html = '<ul id="menuRightLogin" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Registracija", "Index", "Registracija", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>' +
+                                '<li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>' +
+                                '</ul>';
+                            $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+
+                        }
+    </script>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fb1613a7e4084b6e984a5bfd6866eba9" Name="Diagram1" ZoomLevel="108">
+      <Diagram DiagramId="fb1613a7e4084b6e984a5bfd6866eba9" Name="Diagram1" ZoomLevel="60">
         <EntityTypeShape EntityType="PizzeriaEntity.Kategorii" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzeriaEntity.Korisnici" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzeriaEntity.Meni" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
@@ -16,13 +16,12 @@
         <AssociationConnector Association="PizzeriaEntity.FK_Meni_Kategorii" ManuallyRouted="false" />
         <AssociationConnector Association="PizzeriaEntity.FK_Naracka_Korisnici" ManuallyRouted="false" />
         <AssociationConnector Association="PizzeriaEntity.FK_Meni_Opis" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzeriaEntity.FK_Meni_Tip" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzeriaEntity.FK_Meni_Velicina" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzeriaEntity.FK_Naracka_Meni" ManuallyRouted="false" />
         <AssociationConnector Association="PizzeriaEntity.FK_PoedinecnaPica_Opis" ManuallyRouted="false" />
         <AssociationConnector Association="PizzeriaEntity.FK_PoedinecnaPica_Velicina" ManuallyRouted="false" />
         <AssociationConnector Association="PizzeriaEntity.FK_PoedinecnaPica_Tip" />
         <EntityTypeShape EntityType="PizzeriaEntity.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="PizzeriaEntity.FK_Naracka_Tip" />
+        <AssociationConnector Association="PizzeriaEntity.FK_Naracka_Velicina" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

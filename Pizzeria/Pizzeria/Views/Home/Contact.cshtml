@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <style>
         #map {
@@ -55,39 +56,60 @@
 </head>
 <body style="background-color:#660000">
     <h2 style="color: aliceblue">Kontakt</h2>
-    <h3 style="color: aliceblue">Nasata lokacija:</h3style="color:>
-    <div id="map"></div>
-    <!--<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-    </address>-->
-    <script>
-        function initMap() {
-            var uluru = { lat: 41.031230, lng:  21.263877 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9D6w4Ob4MDyRqVBQ8Ml6Smg4J0hIDpZA&callback=initMap">
-    </script>
-    <br />
-    <h4 style="color: aliceblue">Pronadete ne na socijalnite mrezi:</h4>
-    <a href="https://www.facebook.com/" class="fa fa-facebook" _blank></a>
-    <a href="https://twitter.com/login" class="fa fa-twitter" _blank></a>
-    <a href="https://www.instagram.com/?hl=en" class="fa fa-instagram" _blank></a>
-    <a href="https://www.google.com/" class="fa fa-google" _blank></a>
-    <a href="https://www.youtube.com/" class="fa fa-youtube" _blank></a>
-    <!--<address>
+    <h3 style="color: aliceblue">
+        Nasata lokacija:</h3style="color:>
+        <div id="map"></div>
+       
+        <script>
+            function initMap() {
+                var uluru = { lat: 41.031230, lng: 21.263877 };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 13,
+                    center: uluru
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9D6w4Ob4MDyRqVBQ8Ml6Smg4J0hIDpZA&callback=initMap">
+        </script>
+        <br />
+        <h4 style="color: aliceblue">Pronadete ne na socijalnite mrezi:</h4>
+        <a href="https://www.facebook.com/" class="fa fa-facebook" _blank></a>
+        <a href="https://twitter.com/login" class="fa fa-twitter" _blank></a>
+        <a href="https://www.instagram.com/?hl=en" class="fa fa-instagram" _blank></a>
+        <a href="https://www.google.com/" class="fa fa-google" _blank></a>
+        <a href="https://www.youtube.com/" class="fa fa-youtube" _blank></a>
+        <!--<address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
     </address>-->
+        <script>
+                       var log = sessionStorage.getItem('UserName');
+                    if (document.getElementById("menuRightLogin") && log != null) {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                            var html = '<ul id="menuRightLogoff" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Naracka", "Index", "Naracka", routeValues: null, htmlAttributes: new { id = "registracijaLink" })</li>' +
+                                '<li><a id="logOff" href="/Account/Login">Log off</a></li>' +
+                                '</ul>';
+
+
+                        $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+                        $('#logOff').click(function () { sessionStorage.clear();});
+                    } else {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                      
+                             var html = '<ul id="menuRightLogin" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Registracija", "Index", "Registracija", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>' +
+                                '<li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>' +
+                                '</ul>';
+                            $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+
+                        }
+        </script>
 </body>
 </html>

@@ -15,11 +15,13 @@ namespace Pizzeria.Models
     public partial class Naracka
     {
         public int NarackaID { get; set; }
-        public Nullable<int> MeniID { get; set; }
         public Nullable<int> KorisniciID { get; set; }
         public Nullable<int> Kolicina { get; set; }
+        public Nullable<int> TipID { get; set; }
+        public Nullable<int> VelicinaID { get; set; }
     
         public virtual Korisnici Korisnici { get; set; }
-        public virtual Meni Meni { get; set; }
+        public virtual Tip Tip { get; set; }
+        public virtual Velicina Velicina { get; set; }
     }
 }

@@ -17,16 +17,16 @@ namespace Pizzeria.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tip()
         {
-            this.Menis = new HashSet<Meni>();
             this.PoedinecnaPicas = new HashSet<PoedinecnaPica>();
+            this.Narackas = new HashSet<Naracka>();
         }
     
         public int TipID { get; set; }
         public string ImePica { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Meni> Menis { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PoedinecnaPica> PoedinecnaPicas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Naracka> Narackas { get; set; }
     }
 }

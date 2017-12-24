@@ -3,34 +3,45 @@
 
 <html>
 <head>
-    
+
     <meta name="viewport" content="width=device-width" />
-    <script type="text/javascript" src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Index</title>
+    
 
 </head>
 <body style="background-color:#660000">
     <div class="jumbotron">
+      
         <div class="row">
             <div class="container">
                 <div>
-                    <h4>Izberete Pica:</h4><select id="tip"><option value=0>---------</option></select>
-                    <h4>Izberete Golemina:</h4><select id="golemina"><option value=0>---------</option></select>
+                    <h4>Izberete Pica:</h4><select id="tip"><option>---------</option></select>
+                    <h4>Izberete Golemina:</h4><select id="golemina"><option>---------</option></select>
                     <h4>Izberete Kolicina:</h4><input type="text" id="kolicina" />
                     <h4></h4>
-                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="container">
-                <div>
-                     <button>Cena:</button>
-                    <textarea id="box"  rows="1" cols="15"></textarea>
                 </div>
             </div>
         </div>
-    </div>
 
+        <select style="display:none" id="userID" name="userID">
+            <option value="@Session["userID"]">@Session["userID"]</option>
+        </select>
+
+        <select style="display:none" id="username" name="username">
+            <option value="@Session["UserName"]">@Session["UserName"]</option>
+        </select>
+        <div class="row">
+            <div class="container">
+                <div>
+                    <input type="submit" id="naracaj" />
+                    <textarea id="box" rows="1" cols="15"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+       
     <script>
     var tip = [];
     var golemina = [];
@@ -139,7 +150,50 @@
             }
         });
 
+        $("#naracaj").click(function () {
+            
+            var tipID = $("#tip").val();
+            var goleminaID = $("#golemina").val();
+            var kolicina = $("#kolicina").val();
+         
+            $.ajax({
+                type: 'get',
+                url: '/Naracka/SaveRecord',
+                data: {
+                    tipId: tipID,
+                    goleminaId: goleminaID,
+                    kolicinaVk: kolicina,
+                    userID: "@Session["userID"]",
+                    username: "@Session["UserName"]"
+                },
+                success: function (response) {
+                    alert("Uspesna naracka!");
+                }
+            });
+        });
 
+                       var log = sessionStorage.getItem('UserName');
+                    if (document.getElementById("menuRightLogin") && log != null) {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                            var html = '<ul id="menuRightLogoff" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Naracka", "Index", "Naracka", routeValues: null, htmlAttributes: new { id = "registracijaLink" })</li>' +
+                                '<li><a id="logOff" href="/Account/Login">Log off</a></li>' +
+                                '</ul>';
+
+
+                        $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+                        $('#logOff').click(function () { sessionStorage.clear();});
+                    } else {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                             var html = '<ul id="menuRightLogin" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Registracija", "Index", "Registracija", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>' +
+                                '<li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>' +
+                                '</ul>';
+                            $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+
+                        }
     </script>
 </body>
 </html>

@@ -39,8 +39,9 @@
     <EntitySetMapping Name="Narackas">
       <EntityTypeMapping TypeName="PizzeriaEntity.Naracka">
         <MappingFragment StoreEntitySet="Naracka">
+          <ScalarProperty Name="VelicinaID" ColumnName="VelicinaID" />
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
           <ScalarProperty Name="NarackaID" ColumnName="NarackaID" />
-          <ScalarProperty Name="MeniID" ColumnName="MeniID" />
           <ScalarProperty Name="KorisniciID" ColumnName="KorisniciID" />
           <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
         </MappingFragment>

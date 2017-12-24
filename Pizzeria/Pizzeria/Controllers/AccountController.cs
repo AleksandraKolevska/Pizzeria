@@ -58,6 +58,7 @@ namespace Pizzeria.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            Session.Abandon();
             return View();
         }
 
@@ -327,6 +328,10 @@ namespace Pizzeria.Controllers
             {
                 return RedirectToAction("Login");
             }
+            Session["UserName"] = loginInfo.DefaultUserName.ToString();
+
+            Int32 userId = Int32.Parse(loginInfo.Login.ProviderKey.Substring(0, 3));
+            Session["userID"] = userId;
 
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);

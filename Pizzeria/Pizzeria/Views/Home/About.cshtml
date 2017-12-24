@@ -3,6 +3,8 @@
 <title>About</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <style>
     .mySlides {
         display: none
@@ -11,7 +13,7 @@
 <body style="background-color:#660000">
 
     <div class="w3-container">
-        <h2 style="color: aliceblue; text-align:center">Istorija</h2> 
+        <h2 style="color: aliceblue; text-align:center">Istorija</h2>
         <h1 style="height:30px"></h1>
         <p style="text-align:justify; color: aliceblue">Foods similar to pizza have been made since the neolithic age. Records of people adding other ingredients to bread to make it more flavorful can be found throughout ancient history. The ancient Greeks supplemented their bread with oils, herbs, and cheese and in the 6th century BC, the soldiers in Persian King Darius I's armies baked flatbreads with cheese and dates on top of their battle shields.An early reference to a pizza-like food occurs in the Aeneid, when Celaeno, queen of the Harpies, foretells that the Trojans would not find peace until they are forced by hunger to eat their tables. In Book VII, Aeneas and his men are served a meal that includes round cakes (like pita bread) topped with cooked vegetables. When they eat the bread, they realize that these are the "tables" prophesied by Celaeno.</p>
     </div>
@@ -78,5 +80,30 @@
         <img src="~/Content/Pictures/about1.jpg" width=100% height="400px">
         <img src="~/Content/Pictures/about2.jpg" width=100% height="400px">
     </div>
+    <script>
+                       var log = sessionStorage.getItem('UserName');
+                    if (document.getElementById("menuRightLogin") && log != null) {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                            var html = '<ul id="menuRightLogoff" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Naracka", "Index", "Naracka", routeValues: null, htmlAttributes: new { id = "registracijaLink" })</li>' +
+                                '<li><a id="logOff" href="/Account/Login">Log off</a></li>' +
+                                '</ul>';
+
+
+                        $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+                        $('#logOff').click(function () { sessionStorage.clear();});
+                    } else {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                      
+                             var html = '<ul id="menuRightLogin" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Registracija", "Index", "Registracija", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>' +
+                                '<li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>' +
+                                '</ul>';
+                            $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+
+                        }
+    </script>
 </body>
 </html>

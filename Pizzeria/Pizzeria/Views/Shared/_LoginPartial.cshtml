@@ -1,23 +1,26 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+                       var log = sessionStorage.getItem('UserName');
+                    if (document.getElementById("menuRightLogin") && log != null) {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                            var html = '<ul id="menuRightLogoff" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Naracka", "Index", "Naracka", routeValues: null, htmlAttributes: new { id = "registracijaLink" })</li>' +
+                                '<li><a id="logOff" href="/Account/Login">Log off</a></li>' +
+                                '</ul>';
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
-    }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Order", "Index", "Naracka", routeValues: null, htmlAttributes: new { id = "orderLink" })</li>
-        <li>@Html.ActionLink("Register", "Index", "Registracija", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Login", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
+
+                        $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+                        $('#logOff').click(function () { sessionStorage.clear();});
+                    } else {
+                        $("#menuRightLogin").remove();
+                        $("#menuRightLogoff").remove();
+                     
+                             var html = '<ul id="menuRightLogin" class="nav navbar-nav navbar-right">' +
+                                '<li>@Html.ActionLink("Registracija", "Index", "Registracija", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>' +
+                                '<li>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>' +
+                                '</ul>';
+                            $('body > div.navbar.navbar-inverse.navbar-fixed-top > div > div.navbar-collapse.collapse').append(html);
+
+                        }
+    </script>

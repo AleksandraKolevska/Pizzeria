@@ -14,12 +14,6 @@ namespace Pizzeria.Models
     
     public partial class Meni
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Meni()
-        {
-            this.Narackas = new HashSet<Naracka>();
-        }
-    
         public int MeniID { get; set; }
         public Nullable<int> TipID { get; set; }
         public Nullable<int> VelicinaID { get; set; }
@@ -29,9 +23,5 @@ namespace Pizzeria.Models
     
         public virtual Kategorii Kategorii { get; set; }
         public virtual Opi Opi { get; set; }
-        public virtual Tip Tip { get; set; }
-        public virtual Velicina Velicina { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Naracka> Narackas { get; set; }
     }
 }
